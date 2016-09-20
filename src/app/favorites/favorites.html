@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+
+    <div class="alert alert-info text-center" ng-show="vm.developers.length === 0">
+      There aren't any favorite developers.
+      Go to <a class="alert-link" ui-sref="main.search">Search</a> and add some.
+    </div>
+
+    <div class="col-sm-6 col-md-4" ng-repeat="developer in vm.developers">
+      <div class="media developer">
+
+        <div class="media-left">
+          <img class="media-object avatar" ng-src="{{ developer.avatar_url }}" alt="{{ developer.username }}">
+        </div> <!-- end avatar -->
+
+        <div class="media-body media-middle">
+          <h4 class="media-heading">
+            <a href="{{developer.profile_url}}" target="_blank">
+              {{ developer.username }}
+            </a>
+          </h4>
+          <button type="button" class="btn btn-danger btn-sm" ng-show="developer.isFavorite" ng-click="vm.removeFavorite(developer)">
+            ★
+          </button>
+        </div> <!-- end body -->
+
+      </div>
+    </div> <!-- end developer component -->
+
+  </div> <!-- end row -->
+<div> <!-- end container -->
